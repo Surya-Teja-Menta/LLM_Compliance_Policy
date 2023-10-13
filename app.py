@@ -97,7 +97,7 @@ if url:
             out +=res
 
         st.subheader("Non-Compliant Results:")
-        st.write(*results)
+        st.write(*out)
 
 
 

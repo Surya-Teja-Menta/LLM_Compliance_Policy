@@ -92,7 +92,10 @@ url = st.text_input("Enter the URL of the webpage")
 if url:
     if st.button("Check Compliance"):
         results = get_result(url)
-        out += res if res is not None else ""
+        out = ''
+        for res in results:
+            out +=res
+
         st.subheader("Non-Compliant Results:")
         st.write(*results)
 

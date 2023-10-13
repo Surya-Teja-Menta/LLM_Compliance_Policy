@@ -1,5 +1,5 @@
 streamlit
 openai
-json
 bs4
+beautifulsoup4
 

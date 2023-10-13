@@ -1,0 +1,5 @@
+streamlit==1.27.2
+openai==0.27.9
+json
+bs4
+

@@ -12,9 +12,11 @@ try:
     with open('config.json', 'r') as config_file:
         config = json.load(config_file)
     # Fetch the OpenAI API key from the configuration
-    openai.api_key = st.secrets["api_key"]
+    #openai.api_key = config.get('openai_api_key')
+    openai.api_key = st.secrets['API_KEY']
 except Exception as e:
         pass 
+
 
 
 def get_chunks(url):
@@ -72,7 +74,7 @@ def get_ncs(chunk):
     except Exception as e:
         print(e)
 
-def get_result(url):
+def get_result(url='https://stripe.com/docs/treasury/marketing-treasury'):
     try:
         print('---Getting Result---')
         chunks = get_chunks(url)
@@ -92,7 +94,7 @@ if url:
         results = get_result(url)
         out = ''
         for res in results:
-            out += res
+            out +=res
 
         st.subheader("Non-Compliant Results:")
         st.write(*results)

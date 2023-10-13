@@ -89,18 +89,15 @@ def get_result(url='https://stripe.com/docs/treasury/marketing-treasury'):
 st.title("Webpage Compliance Checker")
 url = st.text_input("Enter the URL of the webpage")
 
-try:
-    if url:
-        if st.button("Check Compliance"):
-            results = get_result(url)
-            out = ''
-            for res in results:
-                out +=res
+if url:
+    if st.button("Check Compliance"):
+        results = get_result(url)
+        out = ''
+        for res in results:
+            out +=res
 
-            st.subheader("Non-Compliant Results:")
-            st.write(*results)
-except Exception as e:
-    pass
+        st.subheader("Non-Compliant Results:")
+        st.write(*results)
 
 
 

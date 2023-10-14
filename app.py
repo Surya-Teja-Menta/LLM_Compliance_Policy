@@ -7,7 +7,8 @@ from bs4 import BeautifulSoup as bs
 warnings.filterwarnings("ignore")
 
 try:
-    openai.api_key = st.secrets['API_KEY']
+    #openai.api_key = st.secrets['API_KEY']
+    openai.api_key = "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"
 except Exception as e:
         pass 
 
@@ -51,7 +52,7 @@ def get_ncs(chunk):
         print('---Getting Response---')
 
         if len(chunk) != 0 or chunk is not None:
-            prompt = f"Act as a Legal Compliance Policy Advisor, Check the content in Data against the compliance policy and report the findings. if yes, give me the content regarding that only. Otherwise, don't provide any other info. Don't provide any irrelevant content. \n Data =  {chunk}"
+            prompt = f"Act as a Legal Compliance Policy Advisor, Check the content in Data against the compliance policy and report the findings. if yes, give me the Summary content regarding that and Precaustions and suggestions only. Otherwise, don't provide any other info. Don't provide any irrelevant content. \n Data =  {chunk}"
             messages = [{'role':'user','content':prompt}]
             response = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",

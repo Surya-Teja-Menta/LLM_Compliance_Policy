@@ -10,7 +10,7 @@ try:
     openai.api_key = st.secrets['API_KEY']
     #openai.api_key = "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"
 except Exception as e:
-        pass 
+    st.write(e) 
 
 
 
@@ -45,11 +45,11 @@ def get_chunks(url):
             chunks[i] = ' '.join(chunks[i])
         return chunks
     except Exception as e:
-        pass 
+        st.write(e) 
 
 def get_ncs(chunk):
     try:
-        print('---Getting Response---')
+        st.write('---Getting Response---')
 
         if len(chunk) != 0 or chunk is not None:
             prompt = f"Act as a Legal Compliance Policy Advisor, Check the content in Data against the compliance policy and report the findings. if yes, give me the Summary content regarding that and Precaustions and suggestions only. Otherwise, don't provide any other info. Don't provide any irrelevant content. \n Data =  {chunk}"
@@ -67,7 +67,7 @@ def get_ncs(chunk):
 
         return content
     except Exception as e:
-        print(e)
+        st.write(e)
 
 def get_result(url='https://stripe.com/docs/treasury/marketing-treasury'):
     try:
@@ -79,7 +79,7 @@ def get_result(url='https://stripe.com/docs/treasury/marketing-treasury'):
             results.append(res)
         return results
     except Exception as e:
-        pass 
+        st.write(r) 
 
 st.title("Webpage Compliance Checker")
 url = st.text_input("Enter the URL of the webpage")

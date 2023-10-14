@@ -51,10 +51,10 @@ def get_ncs(chunk):
     try:
         
         if len(chunk) != 0 or chunk is not None:
-            prompt = f"Act as a Legal Compliance Policy Advisor, Check the content in Data against the compliance policy and report the findings. if there is a data against policy, provide me the content and Precaustions and suggestions only. if there is no content against policy, don't provide any other info. Don't provide any irrelevant content. \n Data =  {chunk}"
+            prompt = f"Act as a Legal Compliance Policy Advisor, Check the content in Data against the compliance policy and report the findings. if there is a data against policy in detail, provide me the content and Precaustions and suggestions only. if there is no content against policy, don't provide any other info. Don't provide any irrelevant content. \n Data =  {chunk}"
             messages = [{'role':'user','content':prompt}]
             response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",
+                model="text-davinci-003",
                 messages = messages,
                 temperature = 0.7
             )

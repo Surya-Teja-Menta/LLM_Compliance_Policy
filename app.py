@@ -7,12 +7,6 @@ from bs4 import BeautifulSoup as bs
 warnings.filterwarnings("ignore")
 
 try:
-
-    # Read the configuration from config.json
-    with open('config.json', 'r') as config_file:
-        config = json.load(config_file)
-    # Fetch the OpenAI API key from the configuration
-    #openai.api_key = config.get('openai_api_key')
     openai.api_key = st.secrets['API_KEY']
 except Exception as e:
         pass 
@@ -94,6 +88,3 @@ if url:
         results = get_result(url)
         st.subheader("Non-Compliant Results:")
         st.write(*results)
-
-
-

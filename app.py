@@ -7,8 +7,8 @@ from bs4 import BeautifulSoup as bs
 warnings.filterwarnings("ignore")
 
 try:
-    #openai.api_key = st.secrets['API_KEY']
-    openai.api_key = "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"
+    openai.api_key = st.secrets['API_KEY']
+    #openai.api_key = "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"
 except Exception as e:
         pass 
 
